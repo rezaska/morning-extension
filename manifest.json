@@ -11,6 +11,20 @@
     "default_title": "Morning!"
   },
   "permissions": [
-      "activeTab"
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "popup.js"
+      ],
+      "css": [
+        "popup.css"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
   ]
 }

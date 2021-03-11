@@ -2,11 +2,42 @@
 <html>
   <head>
     <title>Morning app</title>
+    <link rel="stylesheet" href="./popup.css">
   </head>
-  <style>
-
-  </style>
   <body>
-    <h1>Morning!</h1>
+
+    <div class="when">
+      <img src="./icon.png" alt="morning">
+      <img src="./noon.png" alt="noon">
+      <img src="./evening.png" alt="evening">
+    </div>
+
+    <div class="box">
+
+      <div class="task">
+        <select>
+          <option value="walk"> Walk </option>
+          <option value="meditate"> Meditate </option>
+          <option value="hydrate"> Hydrate </option>
+        </select>
+      </div>
+
+      <div class="timer">
+        <input type="number" placeholder="5 Minute">
+      </div>
+
+      <div>
+        <input type="time">
+      </div>
+
+    </div>
+
+    <div class="btn">
+      <button>Start</button>
+    </div>
+
+    <script src="./popup.js"></script>
+
   </body>
+
 </html>

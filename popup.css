@@ -1,0 +1,11 @@
+img {
+  width: 30%;
+}
+
+.when {
+  display: flex;
+}
+
+.box {
+  border: 1px solid grey;
+}
