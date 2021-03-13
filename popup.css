@@ -1,4 +1,4 @@
-img {
+.day-icon {
   width: 30%;
 }
 
@@ -8,4 +8,36 @@ img {
 
 .box {
   border: 1px solid grey;
+}
+
+/* .hidden {
+  display: none;
+} */
+
+/* .message {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background-color: green;
+  z-index: 900001;
+} */
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer; 
 }

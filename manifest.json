@@ -15,16 +15,9 @@
   ],
   "content_scripts": [
     {
-      "js": [
-        "popup.js"
-      ],
-      "css": [
-        "popup.css"
-      ],
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ]
+      "js": ["popup.js"],
+      "css": ["popup.css"],
+      "matches": ["http://*/*","https://*/*"]
     }
   ]
 }
