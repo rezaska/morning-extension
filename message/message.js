@@ -1,3 +1,5 @@
-import {getTimerValue} from '../popup/popup.js';
+import countdownUtils, { countdown__test } from './utils.js';
 
-console.log(getTimerValue());
+const countdown = document.querySelector('.countdown');
+countdownUtils(timerDuration, countdown);
+// countdown__test(startTime, timerDuration, countdown);
