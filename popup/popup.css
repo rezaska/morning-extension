@@ -1,0 +1,16 @@
+.day-icon {
+  width: 50%;
+}
+
+button{
+  border: none;
+  background-color: white;
+}
+
+.buttons {
+  display: flex;
+}
+
+.website-text p {
+  font-family: 'Poppins', sans-serif;
+}

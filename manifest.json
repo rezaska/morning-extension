@@ -7,7 +7,7 @@
   "author": "Reza Soleimani",
   "browser_action": {
     "default_icon": "./assets/icon.png",
-    "default_popup": "popup.html",
+    "default_popup": "./popup/popup.html",
     "default_title": "Morning!"
   },
   "permissions": [
@@ -15,8 +15,8 @@
   ],
   "content_scripts": [
     {
-      "js": ["popup.js"],
-      "css": ["popup.css"],
+      "js": ["./popup/popup.js", "./message/message.js"],
+      "css": ["./popup/popup.css"],
       "matches": ["http://*/*","https://*/*"]
     }
   ]
