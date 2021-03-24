@@ -26,6 +26,13 @@ if (buttonElement) {
   buttonElement.onclick = () => {
     const remainingTimeTillBreak = getMillisecondsToStartTime(time.value);
     setTimeout(openNewTab, remainingTimeTillBreak);
-    scheduledTask.innerHTML = `<p>You have selected to do ${chosenTask} at ${time.value}</p>`
+    scheduledTask.innerHTML = `<p>You have selected to do ${chosenTask} at ${time.value}.</p>`
   };
 };
+
+// Overlay feature (to be added in later version)
+chrome.tabs.query({active:true, currentWindow:true}, (tabs) => {
+  chrome.tabs.sendMessage(tabs[0].id, {action:'getDOM'}, (response) => {
+    console.log(response)
+  })
+});

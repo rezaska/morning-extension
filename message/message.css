@@ -1,0 +1,16 @@
+html {
+  background-color: #c4c4c4;
+}
+
+.countdown {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+}
+
