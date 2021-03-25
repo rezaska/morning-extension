@@ -26,7 +26,7 @@ if (buttonElement) {
   buttonElement.onclick = () => {
     const remainingTimeTillBreak = getMillisecondsToStartTime(time.value);
     setTimeout(openNewTab, remainingTimeTillBreak);
-    scheduledTask.innerHTML = `<p>You have selected to do ${chosenTask} at ${time.value}.</p>`
+    scheduledTask.innerHTML = `<p>You have selected to do ${chosenTask} at ${time.value}.</p>`;
   };
 };
 

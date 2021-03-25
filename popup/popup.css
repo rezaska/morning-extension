@@ -12,13 +12,15 @@ button{
   display: flex;
 }
 
-.tasks-container {
-  margin-top: 10px;
+.button-title p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
 }
 
-.website-text p {
-  font-family: 'Poppins', sans-serif;
-  color: #C4C4C4;
+.tasks-container {
+  margin-top: 10px;
 }
 
 .my-btn {
@@ -47,17 +49,13 @@ select {
 }
 
 input[type=number] {
+  font-family: 'Poppins', sans-serif;
   margin-top: 15px;
   padding-left: 10px;
 }
 
 select {
   font-family: 'Poppins', sans-serif;
-}
-
-.timer label {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
 }
 
 .start-time {
@@ -73,6 +71,13 @@ select {
 .website-text {
   margin-top: 15px;
 }
+
+.website-text a {
+  font-family: 'Poppins', sans-serif;
+  color: #C4C4C4;
+}
+
+
 
 
 
