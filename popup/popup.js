@@ -30,7 +30,7 @@ if (buttonElement) {
   };
 };
 
-// Overlay feature (to be added in later version)
+// Overlay feature using Chrome API (to be added in later version)
 chrome.tabs.query({active:true, currentWindow:true}, (tabs) => {
   chrome.tabs.sendMessage(tabs[0].id, {action:'getDOM'}, (response) => {
     console.log(response)

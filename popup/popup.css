@@ -19,10 +19,6 @@ button{
   text-align: center;
 }
 
-.tasks-container {
-  margin-top: 10px;
-}
-
 .my-btn {
   background-color: #C4C4C4;
   padding: 5px 15px;
@@ -30,7 +26,6 @@ button{
   margin-top: 15px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
@@ -58,7 +53,8 @@ select {
   font-family: 'Poppins', sans-serif;
 }
 
-.start-time {
+.start-time,
+.tasks-container {
   margin-top: 10px;
 }
 
