@@ -5,53 +5,59 @@
     <link rel="stylesheet" href="./popup.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap"
       rel="stylesheet">
   </head>
 
   <body>
-    <div class="buttons">
-      <button id="button1" type="button">
-        <img src="../assets/morning.png" alt="morning" class="day-icon" id="morning">
-      </button>
-      <button id="button2" type="button">
-        <img src="../assets/afternoon-off.png" alt="afternoon" class="day-icon" id="afternoon">
-      </button>
-      <button id="button3" type="button">
-        <img src="../assets/evening-off.png" alt="evening" class="day-icon" id="evening">
-      </button>
-    </div>
+    <div class="app">
+      <header class="header">
+        <h1 class="app-title">Morning!</h1>
+        <p class="app-subtitle">Schedule a moment for yourself.</p>
 
-    <div class="button-title"></div>
+        <div class="buttons">
+          <button id="button1" type="button" class="icon-btn">
+            <img src="../assets/morning.png" alt="morning" class="day-icon" id="morning">
+          </button>
+          <button id="button2" type="button" class="icon-btn">
+            <img src="../assets/afternoon-off.png" alt="afternoon" class="day-icon" id="afternoon">
+          </button>
+          <button id="button3" type="button" class="icon-btn">
+            <img src="../assets/evening-off.png" alt="evening" class="day-icon" id="evening">
+          </button>
+        </div>
 
-    <div class="tasks-container wrapper">
-      <div class="task-box">
-        <div class="tasks">
+        <div class="button-title"></div>
+      </header>
+
+      <div class="card">
+        <label class="field">
+          <span class="field-label">Task</span>
           <select>
             <option value="walk">Walk</option>
             <option value="meditate">Meditate</option>
             <option value="hydrate">Hydrate</option>
           </select>
-        </div>
+        </label>
 
-        <div class="timer">
-          <input type="number" placeholder="1 Minute" id="timer" min="0" max="120" step="1">
-        </div>
+        <label class="field">
+          <span class="field-label">Length (minutes)</span>
+          <input type="number" placeholder="1" id="timer" min="0" max="120" step="1">
+        </label>
 
-        <div class="start-time">
+        <label class="field">
+          <span class="field-label">Start at</span>
           <input type="time" id="time">
-        </div>
+        </label>
       </div>
-    </div>
 
-    <div class="btn">
       <button class="my-btn">Start</button>
-    </div>
 
-    <div class="scheduled-task hidden"></div>
+      <div class="scheduled-task hidden"></div>
 
-    <div class="website-text">
-      <a href="https://momentum-3d6afa.webflow.io/" target="_blank">try<b>morning</b>.com</a>
+      <div class="website-text">
+        <a href="https://momentum-3d6afa.webflow.io/" target="_blank">try<b>morning</b>.com</a>
+      </div>
     </div>
 
     <script type="module" src="./popup.js"></script>

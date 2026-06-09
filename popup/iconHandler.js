@@ -1,9 +1,6 @@
 const iconHandler = function () {
 
   const buttonTitle = document.querySelector('.button-title');
-  const timer = document.querySelector('#timer');
-  const time = document.querySelector('#time');
-  const select = document.querySelector('select');
 
   function selectIcon(activeIconName, inactiveIcon1Name, inactiveIcon2Name) {
     const activeIcon = document.querySelector(`#${activeIconName}`);
@@ -13,14 +10,14 @@ const iconHandler = function () {
     inactiveIcon1.setAttribute('src', sourceFiles[`${inactiveIcon1Name}IconInactive`]);
     inactiveIcon2.setAttribute('src', sourceFiles[`${inactiveIcon2Name}IconInactive`]);
     buttonTitle.innerHTML = `<p>${activeIconName}</p>`;
-    resetInputField();
+    setActiveButton(activeIcon);
     return;
   };
 
-  function resetInputField() {
-    select.value = 'walk';
-    timer.value = null;
-    time.value = null;
+  function setActiveButton(activeIcon) {
+    document.querySelectorAll('.icon-btn').forEach((btn) => btn.classList.remove('active'));
+    const activeButton = activeIcon.closest('.icon-btn');
+    if (activeButton) activeButton.classList.add('active');
   }
 
   const sourceFiles = {
@@ -34,7 +31,10 @@ const iconHandler = function () {
 
   function init() {
     const button1 = document.querySelector('#button1');
-    if (button1) button1.onclick = () => selectIcon('morning', 'afternoon', 'evening');
+    if (button1) {
+      button1.onclick = () => selectIcon('morning', 'afternoon', 'evening');
+      button1.classList.add('active');
+    }
 
     const button2 = document.querySelector('#button2');
     if (button2) button2.onclick = () => selectIcon('afternoon', 'evening', 'morning');
