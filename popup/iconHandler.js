@@ -1,7 +1,5 @@
 const iconHandler = function () {
 
-  const buttonTitle = document.querySelector('.button-title');
-
   function selectIcon(activeIconName, inactiveIcon1Name, inactiveIcon2Name) {
     const activeIcon = document.querySelector(`#${activeIconName}`);
     const inactiveIcon1 = document.querySelector(`#${inactiveIcon1Name}`);
@@ -9,7 +7,6 @@ const iconHandler = function () {
     activeIcon.setAttribute('src', sourceFiles[`${activeIconName}IconActive`]);
     inactiveIcon1.setAttribute('src', sourceFiles[`${inactiveIcon1Name}IconInactive`]);
     inactiveIcon2.setAttribute('src', sourceFiles[`${inactiveIcon2Name}IconInactive`]);
-    buttonTitle.innerHTML = `<p>${activeIconName}</p>`;
     setActiveButton(activeIcon);
     return;
   };
