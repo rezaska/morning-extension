@@ -341,20 +341,16 @@ input[type=time]:focus {
   display: none;
 }
 
-/* ---- Footer link ---- */
+/* ---- Footer ---- */
 .website-text {
   margin: 11px 16px 0;
   text-align: center;
-}
-
-.website-text a {
   font-family: var(--font);
   font-size: 12px;
-  text-decoration: none;
   color: var(--ink-soft);
 }
 
-.website-text a b {
+.website-text b {
   color: var(--orange-deep);
   font-weight: 600;
 }
