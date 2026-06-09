@@ -11,7 +11,10 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
   );
   await chrome.tabs.create({ url });
 
-  // One-shot task — clean it up so storage doesn't grow unbounded.
-  delete tasks[alarm.name];
-  await chrome.storage.local.set({ tasks });
+  // Keep recurring tasks for the next firing; clean up one-shot tasks so
+  // storage doesn't grow unbounded.
+  if (!data.repeat) {
+    delete tasks[alarm.name];
+    await chrome.storage.local.set({ tasks });
+  }
 });

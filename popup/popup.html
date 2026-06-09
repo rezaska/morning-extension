@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        <div class="field">
+        <div class="field" id="length-field">
           <span class="field-label">Length (minutes)</span>
           <div class="chip-group" id="length-group">
             <button type="button" class="chip length-chip" data-min="5">5</button>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="field">
-          <span class="field-label">Start in</span>
+          <span class="field-label" id="start-label">Start in</span>
           <div class="chip-group" id="relative-group">
             <button type="button" class="chip start-chip active" data-min="15">15<span class="unit">min</span></button>
             <button type="button" class="chip start-chip" data-min="30">30<span class="unit">min</span></button>
@@ -86,6 +86,14 @@
             <select id="ampm" class="time-select" aria-label="AM or PM">
               <option>AM</option><option>PM</option>
             </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Repeat</span>
+          <div class="chip-group" id="repeat-group">
+            <button type="button" class="chip repeat-chip active" data-repeat="once">Once</button>
+            <button type="button" class="chip repeat-chip" data-repeat="daily">Every day</button>
           </div>
         </div>
       </div>

@@ -7,12 +7,15 @@ const startButton = document.querySelector('.my-btn');
 
 // ---- Task: pick one pill ----
 const taskGroup = document.querySelector('#task-group');
+const lengthField = document.querySelector('#length-field');
 let chosenTask = 'walk';
 taskGroup.addEventListener('click', (event) => {
   const chip = event.target.closest('.task-chip');
   if (!chip) return;
   setActiveChip(taskGroup, '.task-chip', chip);
   chosenTask = chip.dataset.task;
+  // Hydrate is a quick reminder, not a timed activity — no length needed.
+  lengthField.classList.toggle('hidden', chosenTask === 'hydrate');
 });
 
 // ---- Length: preset chips OR a custom number ----
@@ -35,6 +38,7 @@ lengthCustom.addEventListener('input', () => {
 const relativeGroup = document.querySelector('#relative-group');
 const timeChip = document.querySelector('#time-chip');
 const timePicker = document.querySelector('#time-picker');
+const startLabel = document.querySelector('#start-label');
 const hourSelect = document.querySelector('#hour');
 const minuteSelect = document.querySelector('#minute');
 const ampmSelect = document.querySelector('#ampm');
@@ -43,16 +47,45 @@ let relativeMinutes = 15;
 relativeGroup.addEventListener('click', (event) => {
   const chip = event.target.closest('.chip');
   if (!chip) return;
-  setActiveChip(relativeGroup, '.chip', chip);
 
   if (chip === timeChip) {
-    startMode = 'exact';
-    timePicker.classList.remove('hidden');
-  } else {
-    startMode = 'relative';
-    relativeMinutes = Number(chip.dataset.min);
-    timePicker.classList.add('hidden');
+    // Toggle the time picker: open it, or close it if it's already open.
+    if (startMode === 'exact') {
+      selectRelative(relativeMinutes);
+    } else {
+      setExactMode();
+    }
+    return;
   }
+
+  selectRelative(Number(chip.dataset.min));
+});
+
+function selectRelative(minutes) {
+  startMode = 'relative';
+  startLabel.textContent = 'Start in';
+  relativeMinutes = minutes;
+  timePicker.classList.add('hidden');
+  const chip = relativeGroup.querySelector(`.start-chip[data-min="${minutes}"]`)
+    || relativeGroup.querySelector('.start-chip');
+  setActiveChip(relativeGroup, '.chip', chip);
+}
+
+function setExactMode() {
+  startMode = 'exact';
+  startLabel.textContent = 'Start at';
+  setActiveChip(relativeGroup, '.chip', timeChip);
+  timePicker.classList.remove('hidden');
+}
+
+// ---- Repeat: once or every day ----
+const repeatGroup = document.querySelector('#repeat-group');
+let repeat = 'once';
+repeatGroup.addEventListener('click', (event) => {
+  const chip = event.target.closest('.repeat-chip');
+  if (!chip) return;
+  setActiveChip(repeatGroup, '.repeat-chip', chip);
+  repeat = chip.dataset.repeat;
 });
 
 // Build a 24-hour "HH:MM" string from the dropdowns (for the schedule math).
@@ -78,9 +111,7 @@ function applyPeriodPreset({ hour, minute, ampm }) {
   hourSelect.value = hour;
   minuteSelect.value = minute;
   ampmSelect.value = ampm;
-  setActiveChip(relativeGroup, '.chip', timeChip);
-  startMode = 'exact';
-  timePicker.classList.remove('hidden');
+  setExactMode();
 }
 
 function setActiveChip(group, selector, chip) {
@@ -98,28 +129,36 @@ function notify(message) {
 }
 
 startButton.addEventListener('click', async () => {
-  if (!lengthMinutes || lengthMinutes < 1) {
+  const isReminder = chosenTask === 'hydrate';
+  if (!isReminder && (!lengthMinutes || lengthMinutes < 1)) {
     notify('Please choose how long your break should be.');
     return;
   }
 
   let when;
-  let startLabel;
+  let startText;
   if (startMode === 'exact') {
     when = Date.now() + getMillisecondsToStartTime(exactTimeString());
-    startLabel = `at ${hourSelect.value}:${minuteSelect.value} ${ampmSelect.value}`;
+    startText = `at ${hourSelect.value}:${minuteSelect.value} ${ampmSelect.value}`;
   } else {
     when = Date.now() + relativeMinutes * 60 * 1000;
-    startLabel = `in ${relativeMinutes} min`;
+    startText = `in ${relativeMinutes} min`;
   }
 
   // Persist the task so the background service worker can read it when the
   // alarm fires — the popup is gone by then.
   const alarmName = `morning-${when}`;
+  const isDaily = repeat === 'daily';
+  const duration = isReminder ? 0 : lengthMinutes * 60;
   const { tasks = {} } = await chrome.storage.local.get('tasks');
-  tasks[alarmName] = { task: chosenTask, duration: lengthMinutes * 60 };
+  tasks[alarmName] = { task: chosenTask, duration, repeat: isDaily };
   await chrome.storage.local.set({ tasks });
-  chrome.alarms.create(alarmName, { when });
 
-  notify(`You'll ${chosenTask} for ${lengthMinutes} min, starting ${startLabel}.`);
+  const alarmOptions = { when };
+  if (isDaily) alarmOptions.periodInMinutes = 24 * 60;
+  chrome.alarms.create(alarmName, alarmOptions);
+
+  const forText = isReminder ? '' : ` for ${lengthMinutes} min`;
+  const repeatText = isDaily ? ', every day' : '';
+  notify(`You'll ${chosenTask}${forText}, starting ${startText}${repeatText}.`);
 });

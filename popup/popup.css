@@ -24,26 +24,26 @@ body {
 
 .app {
   width: 300px;
-  padding-bottom: 18px;
+  padding-bottom: 12px;
 }
 
 /* ---- Header ---- */
 .header {
   background: linear-gradient(135deg, var(--peach) 0%, var(--orange) 120%);
-  padding: 20px 22px 18px;
+  padding: 13px 22px 11px;
   text-align: center;
 }
 
 .app-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.3px;
 }
 
 .app-subtitle {
-  margin: 2px 0 14px;
+  margin: 2px 0 9px;
   font-size: 12px;
   font-weight: 400;
   color: var(--ink);
@@ -53,18 +53,18 @@ body {
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 11px;
 }
 
 .icon-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .icon-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   color: var(--ink);
   opacity: 0.8;
@@ -95,8 +95,8 @@ body {
 }
 
 .day-icon {
-  width: 40px;
-  height: 40px;
+  width: 33px;
+  height: 33px;
   display: block;
   border-radius: 50%;
 }
@@ -104,8 +104,8 @@ body {
 /* ---- Card / form ---- */
 .card {
   background: var(--card);
-  margin: 18px 18px 0;
-  padding: 16px;
+  margin: 11px 16px 0;
+  padding: 13px;
   border-radius: var(--radius);
   box-shadow: 0 4px 16px rgba(247, 107, 28, 0.08);
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .field + .field {
-  margin-top: 12px;
+  margin-top: 9px;
 }
 
 .field-label {
@@ -123,7 +123,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-soft);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 input[type=time] {
@@ -175,7 +175,8 @@ input[type=time]:focus {
   color: #fff;
 }
 
-.task-chip {
+.task-chip,
+.repeat-chip {
   flex: 1;
   text-align: center;
 }
@@ -246,7 +247,7 @@ input[type=time]:focus {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .time-colon {
@@ -295,9 +296,9 @@ input[type=time]:focus {
 /* ---- Start button ---- */
 .my-btn {
   display: block;
-  width: calc(100% - 36px);
-  margin: 16px 18px 0;
-  padding: 12px;
+  width: calc(100% - 32px);
+  margin: 11px 16px 0;
+  padding: 10px;
   border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
@@ -322,8 +323,8 @@ input[type=time]:focus {
 
 /* ---- Confirmation ---- */
 .scheduled-task {
-  margin: 14px 18px 0;
-  padding: 12px 14px;
+  margin: 11px 16px 0;
+  padding: 9px 13px;
   background: var(--peach-light);
   border-radius: 12px;
 }
@@ -342,7 +343,7 @@ input[type=time]:focus {
 
 /* ---- Footer link ---- */
 .website-text {
-  margin: 16px 18px 0;
+  margin: 11px 16px 0;
   text-align: center;
 }
 
