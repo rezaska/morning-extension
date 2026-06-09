@@ -9,30 +9,31 @@ const task = document.querySelector('select');
 const scheduledTask = document.querySelector('.scheduled-task');
 let chosenTask = task.value;
 
-if(task) {
+if (task) {
   task.onchange = () => chosenTask = task.value;
 }
 
-// Open new tab function for start button
-function openNewTab() {
-  const message = window.open('../message/message.html', '_blank');
-  message.timerDuration = timer.value * 60;
-  message.startTime = time.value;
-  message.chosenTask = chosenTask;
-  return;
-}
-
 if (buttonElement) {
-  buttonElement.onclick = () => {
-    const remainingTimeTillBreak = getMillisecondsToStartTime(time.value);
-    setTimeout(openNewTab, remainingTimeTillBreak);
+  buttonElement.onclick = async () => {
+    if (!time.value) {
+      scheduledTask.classList.remove('hidden');
+      scheduledTask.innerHTML = `<p>Please pick a start time first.</p>`;
+      return;
+    }
+
+    const durationSeconds = (Number(timer.value) || 1) * 60;
+    const when = Date.now() + getMillisecondsToStartTime(time.value);
+    const alarmName = `morning-${when}`;
+
+    // Persist the task so the background service worker can read it when the
+    // alarm fires — the popup is gone by then.
+    const { tasks = {} } = await chrome.storage.local.get('tasks');
+    tasks[alarmName] = { task: chosenTask, duration: durationSeconds };
+    await chrome.storage.local.set({ tasks });
+
+    chrome.alarms.create(alarmName, { when });
+
+    scheduledTask.classList.remove('hidden');
     scheduledTask.innerHTML = `<p>You have selected to do ${chosenTask} at ${time.value}.</p>`;
   };
-};
-
-// Overlay feature using Chrome API (to be added in later version)
-chrome.tabs.query({active:true, currentWindow:true}, (tabs) => {
-  chrome.tabs.sendMessage(tabs[0].id, {action:'getDOM'}, (response) => {
-    console.log(response)
-  })
-});
+}
