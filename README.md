@@ -1,8 +1,8 @@
 # Morning!
 
-A lightweight Chrome extension that helps you step away from the screen for a quick, intentional break. Schedule a short walk or a hydrate reminder, and Morning! nudges you right on time. Everything stays private and on your own device.
+A lightweight Chrome extension that helps you step away from the screen for a quick, intentional break. Schedule a short walk or a hydrate reminder, and Morning! nudges you right on time. It's private and runs entirely on your own device.
 
-Your choice (task, length, start time, and repeat) is saved to your browser's local storage and scheduled with the [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API, so the break still fires after you close the popup. A background service worker waits for the alarm, then opens a full-screen countdown (for a walk) or a quick reminder (for hydrate) in a new tab and closes it when you're done. One-time breaks clear themselves; daily breaks fire again the next day.
+Breaks are scheduled with the [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API and saved to your browser's local storage, so they fire even after the popup closes. When it's time, a background worker opens a full-screen countdown for a walk, or a quick reminder for hydrate.
 
 ## Features
 
