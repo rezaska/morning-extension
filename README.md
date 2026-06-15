@@ -1,13 +1,13 @@
 # Morning!
 
-A lightweight Chrome extension that helps you step away from the screen for a quick, intentional break. Schedule a short walk or a hydrate reminder, and Morning! nudges you right on time — with everything kept private and on your own device.
+A lightweight Chrome extension that helps you step away from the screen for a quick, intentional break. Schedule a short walk or a hydrate reminder, and Morning! nudges you right on time. Everything stays private and on your own device.
 
 ## Features
 
 - **Walk breaks** with a calming, full-screen countdown
-- **Hydrate reminders** — a quick nudge, no timer
-- **Flexible timing** — start in 15, 30, or 60 minutes, or at a specific time
-- **One-time or daily** — schedule a break once or have it repeat every day
+- **Hydrate reminders**: a quick nudge, no timer
+- **Flexible timing**: start in 15, 30, or 60 minutes, or at a specific time
+- **One-time or daily**: schedule a break once or have it repeat every day
 - **Morning / afternoon / evening** quick-set buttons that prefill a sensible time
 - **Warm, simple interface** that stays out of your way
 - **Fully private**. No data is collected, stored externally, or transmitted
@@ -35,6 +35,6 @@ The easiest way is to install directly from the [Chrome Web Store](https://chrom
 
 ## Privacy
 
-This extension is **data-sovereign by design** — all of your data stays on your own device. It makes no network requests, has no accounts, and no analytics or tracking. Your scheduled breaks live only in your browser's local storage, the Poppins font is bundled rather than loaded from Google, and a strict content-security policy blocks the extension from contacting any outside server.
+This extension is **data-sovereign by design**. All of your data stays on your own device. It makes no network requests, has no accounts, and no analytics or tracking. Your scheduled breaks live only in your browser's local storage, the Poppins font is bundled rather than loaded from Google, and a strict content-security policy blocks the extension from contacting any outside server.
 
 See [`PRIVACY.md`](PRIVACY.md) or the [privacy policy](https://www.rezasoleimani.ca/morning/privacy/) for details.
