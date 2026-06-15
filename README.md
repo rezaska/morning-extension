@@ -20,7 +20,7 @@ A background service worker listens for the alarm. When it fires, it opens the c
 
 ## Installation
 
-Morning! will be available on the Chrome Web Store once approved. In the meantime, you can run it from source.
+The easiest way is to install directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/morning/kmlcdfaodfmlllggjmgodaaffkeglmjo).
 
 ### From source
 
