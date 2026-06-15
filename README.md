@@ -14,9 +14,9 @@ A lightweight Chrome extension that helps you step away from the screen for a qu
 
 ## How it works
 
-When you schedule a break, the popup saves your choice (task, length, start time, and repeat setting) to your browser's local storage and creates an alarm with the [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API. Scheduling this way means the break still fires at the right time even after the popup closes.
+Scheduling a break saves your choice (task, length, start time, and repeat) to your browser's local storage and sets an alarm with the [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API. The alarm lives in the browser rather than the popup, so your break still fires after you close the popup.
 
-A background service worker listens for the alarm. When it fires, it opens the countdown (for a walk) or a reminder (for hydrate) in a new tab, and closes that tab once you're done. One-time breaks are cleaned up automatically; recurring breaks fire again the next day.
+A background service worker waits for that alarm. When it fires, it opens a full-screen countdown (for a walk) or a quick reminder (for hydrate) in a new tab, then closes it when you're done. One-time breaks clear themselves; daily breaks fire again the next day.
 
 ## Installation
 
