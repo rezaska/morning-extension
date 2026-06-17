@@ -4,7 +4,7 @@ A lightweight Chrome extension that helps you step away from the screen for a qu
 
 Breaks are scheduled with the [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API and saved to your browser's local storage, so they fire even after the popup closes. When it's time, a background worker opens a full-screen countdown for a walk, or a quick reminder for hydrate.
 
-![Morning! popup](assets/screenshot.png)
+![Morning! popup](assets/screenshot-store.png)
 
 ## Features
 
