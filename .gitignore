@@ -8,6 +8,5 @@
 # Logs
 *.log
 
-# Build artifacts / store assets
+# Build artifacts (the packaged zip in release/ is local-only)
 *.zip
-morning-screenshot-*.png
