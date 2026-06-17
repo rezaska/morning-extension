@@ -48,9 +48,8 @@ after they fire; recurring tasks are kept until you remove them.
 
 - **alarms** — to fire your scheduled break at the chosen time.
 - **storage** — to remember your scheduled tasks locally on your device.
-- **tabs** — to open the countdown/reminder page and close it when finished.
 
-None of these grant access to your browsing history or page content.
+Neither of these grants access to your browsing history or page content.
 
 ## Your data, your control
 
